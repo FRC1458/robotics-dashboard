@@ -1,0 +1,88 @@
+doctype html
+html
+  head
+    title Team 1458 Robotics Dashboard    
+    link(rel='stylesheet', href='/libraries/bootstrap-3.3.7-dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/main.css')
+  body 
+    div.container-fluid(style="margin: 2em")
+      div.row
+        div.col.col-sm-6
+          // Camera feed
+          div#cameraArea
+            div#cameraViewContainer
+              div#cameraView
+                p Connection could not be established...
+            div
+              button#reloadButton.btn.btn-dark.glyphicon.glyphicon-refresh
+        div.col.col-sm-3
+          div
+            // Time
+            h2.clock#robotTime 9:30
+          div
+            // Field
+            div#fieldDivContainer
+             div#fieldDiv
+              p Field image goes here?
+        div.col.col-sm-3
+          div
+            select.form-control
+              option Autonomous
+              option Not Autonomous
+
+      div.row(style="margin-top: 2em")
+        div.col.col-sm-5
+          // Status Checks
+          h3.header Status Checks
+          table.table
+            thead
+              tr
+                th Network
+                th ???????
+                th ???????
+            tbody
+              tr
+                td
+                  p Robot
+                    span#robotConnected(style="float:right") 
+                td
+                  p ??????
+                    span(style="float:right")
+              tr
+                td
+                  p Server
+                    span#webSocketConnected(style="float:right")
+                td
+                  p ??????
+                    span(style="float:right")
+        div.col.col-sm-4
+            div
+              // Voltage
+              div#voltageDiv
+                div#voltageSubContainer
+                  div#voltageColorBar
+                    div#voltageIndicatorBar
+                  div#voltageBlackBar  
+                  h3(style="margin-top: 0.25em") Voltage: 
+                    span#voltage 0.45
+                      span v
+            div#otherNumbersDiv
+              p Some other number: 
+                span 0.5
+              p Another number here: 
+                span 0.32
+
+        div.col.col-sm-3
+          div#robotImagesContainer
+            div#robotImagesContainerTwo
+              div#robotImages
+                img#robotBack.robotImage(src="/resources/robot-back.png")
+                img#robotHook.robotImage(src="/resources/robot-hook.png")
+                img#robotGrabber.robotImage(src="/resources/robot-grabber.png")
+                img#robotCube.robotImage(src="/resources/robot-cube.png")
+      
+    script(src='/libraries/jquery-3.2.1.min.js')
+    script(src="/libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js")
+    script(src='/networktables/networktables.js')
+    script(src='/networktables/camera.js')
+    script(src='/scripts/main.js')
