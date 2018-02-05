@@ -5,6 +5,7 @@
 body {
 	background-color: #333;
 	color: white;
+	overflow: hidden;
 }
 
 div#cameraView {
@@ -36,7 +37,7 @@ div#cameraArea {
 
 div#cameraViewContainer {
 	position: relative;
-	width: 100%;
+	width: 35vw;
 	padding-top: 56.25%;
 }
 
@@ -97,6 +98,10 @@ div#voltageIndicatorBar {
 	background-color: black;
 }
 
+.btnSwitch {
+	color: black
+}
+
 div#voltageDiv {
 	padding: 0.5em;
 	background-color: #888;
@@ -107,6 +112,12 @@ div#otherNumbersDiv {
 	margin-top: 1em;
 	padding: .25em;
 	background-color: #888;
+}
+
+div#tankArcade {
+	margin-top: 1em;
+	padding: .25em;
+	background-color: green;
 }
 
 #robotImagesContainer {

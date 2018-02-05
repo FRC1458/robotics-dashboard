@@ -9,12 +9,12 @@ html
       div.row
         div.col.col-sm-6
           // Camera feed
+
           div#cameraArea
             div#cameraViewContainer
-              div#cameraView
-                p Connection could not be established...
+              img#camFeed(src="", style="width: 100%; height: auto")
             div
-              button#reloadButton.btn.btn-dark.glyphicon.glyphicon-refresh
+              button#reloadButton.btn.btn-dark.glyphicon.glyphicon-refresh(onclick="refreshImage()")
         div.col.col-sm-3
           div
             // Time
@@ -66,11 +66,21 @@ html
                   h3(style="margin-top: 0.25em") Voltage: 
                     span#voltage 0.45
                       span v
+
+
+            div#tankArcade
+              h2#tankArcadeIndicator Current Drive: Tank Drive
+              br
+              button.btnSwitch(onclick="tank()") Switch to Tank Drive
+              button.btnSwitch(onclick="arcade()") Switch to Arcade Drive
+
             div#otherNumbersDiv
-              p Some other number: 
+              p Some other number:
                 span 0.5
-              p Another number here: 
+              p Another number here:
                 span 0.32
+
+
 
         div.col.col-sm-3
           div#robotImagesContainer

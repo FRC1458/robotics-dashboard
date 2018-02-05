@@ -5,7 +5,8 @@ const config = {
 	maxHookPrecentage: -80,
 	minHookPrecentage: -70,
 	maxGrabberPrecentage: -75,
-	minGrabberPrecentage: 0
+	minGrabberPrecentage: 0,
+	imageURL: "test/chassis.png"
 };
 
 $(document).ready(() => {
@@ -24,6 +25,11 @@ $(document).ready(() => {
 	setStatusCheckElement("robotConnected", NetworkTables.isRobotConnected());
 
 	updateVoltage(10);
+
+	NetworkTables.addKeyListener("/SmartDashboard/Arcade", (key, val) => {
+		console.log("Arcade = "+val)
+		$("#tankArcadeIndicator").text(`Current Drive: ${val === "a" ? "Arcade" : "Tank"}`)
+	}, true)
 });
 
 
@@ -42,7 +48,7 @@ function keyValueChanged(key, value, isNew){
 	}
 
 	// By default, get an element with the ID of the key and set its text to the value.
-	$("#"+key).text(value);
+	//$("#"+key).text(value);
 }
 
 
@@ -77,3 +83,18 @@ function setStatusCheckElement(elementID, status, err) {
 		.addClass(status ? "text-success" : "text-danger")
 		.text(err);
 }
+
+function tank() {
+    NetworkTables.putValue("SmartDashboard/Arcade", "t")
+}
+
+function arcade() {
+	NetworkTables.putValue("SmartDashboard/Arcade", "a")
+}
+
+function refreshImage() {
+	$("#camFeed").prop("src", "")
+	setTimeout(() => { $("#camFeed").prop("src", config.imageURL) }, 100)
+}
+
+refreshImage();
