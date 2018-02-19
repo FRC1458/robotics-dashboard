@@ -6,6 +6,7 @@ body {
 	background-color: #333;
 	color: white;
 	overflow: hidden;
+	font-family: Trebuchet MS;
 }
 
 div#cameraView {
@@ -39,13 +40,15 @@ div#cameraViewContainer {
 	position: relative;
 	width: 35vw;
 	padding-top: 56.25%;
+	border: 1px solid black;
 }
 
 div#fieldDivContainer {
 	position: relative;
 	width: 100%;
 	padding-top: 56.25%;
-	margin-top: 10%
+	margin-top: 10%;
+	diaplay: hidden;
 }
 
 div#fieldDiv {
@@ -110,7 +113,8 @@ div#voltageDiv {
 
 div#otherNumbersDiv {
 	margin-top: 1em;
-	padding: .25em;
+	padding: .5em;
+	padding-left: .5em;
 	background-color: #888;
 }
 
@@ -136,6 +140,7 @@ div#tankArcade {
 
 #robotImages{
 	position: relative;
+	
 }
 
 .robotImage {
@@ -145,4 +150,16 @@ div#tankArcade {
 
 #robotCube{
 	display: none;
+}
+
+div#timeDiv{
+	border: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: grey;
+}
+
+#robotTime{
+	align: center;
+	font-size: 5em;
 }

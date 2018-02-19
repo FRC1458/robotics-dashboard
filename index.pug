@@ -5,6 +5,8 @@ html
     link(rel='stylesheet', href='/libraries/bootstrap-3.3.7-dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/main.css')
   body 
+
+    // ROW 1
     div.container-fluid(style="margin: 2em")
       div.row
         div.col.col-sm-6
@@ -12,24 +14,22 @@ html
 
           div#cameraArea
             div#cameraViewContainer
-              img#camFeed(src="", style="width: 100%; height: auto")
             div
               button#reloadButton.btn.btn-dark.glyphicon.glyphicon-refresh(onclick="refreshImage()")
         div.col.col-sm-3
-          div
+          div#timeDiv
             // Time
             h2.clock#robotTime 9:30
-          div
-            // Field
-            div#fieldDivContainer
-             div#fieldDiv
-              p Field image goes here?
-        div.col.col-sm-3
-          div
-            select.form-control
+          div(style="margin-top: 2em")
+            select#autonomousSelect.form-control
               option Autonomous
               option Not Autonomous
+          div(style="margin-top: 1em")
+            select#driveSelect.form-control(onchange="driveSelectChanged()")
+              option Tank Drive
+              option Arcade Drive
 
+      // ROW 2
       div.row(style="margin-top: 2em")
         div.col.col-sm-5
           // Status Checks
@@ -66,19 +66,13 @@ html
                   h3(style="margin-top: 0.25em") Voltage: 
                     span#voltage 0.45
                       span v
-
-
-            div#tankArcade
-              h2#tankArcadeIndicator Current Drive: Tank Drive
-              br
-              button.btnSwitch(onclick="tank()") Switch to Tank Drive
-              button.btnSwitch(onclick="arcade()") Switch to Arcade Drive
-
             div#otherNumbersDiv
-              p Some other number:
-                span 0.5
-              p Another number here:
-                span 0.32
+              p 
+                b Arbitrary Number 1:
+                span#arbitraryNumber1
+              p 
+                b Arbitrary Number 2:
+                span#arbitraryNumber2
 
 
 
